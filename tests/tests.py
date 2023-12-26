@@ -12,4 +12,4 @@ def test_first_row_is_correct():
     filename = "results.csv"
     expected_output = list
 
-    output = read_csv(filename)"
+    output = read_csv(filename)
