@@ -4,7 +4,7 @@ import os
 import csv
 
 # Test that file is read into as a list
-def check_input_is_list():
+def test__is_list():
     # Arrange
     filename = 'results.csv'
     expected_type = list
