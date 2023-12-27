@@ -1,15 +1,16 @@
-from extract import read_csv
+from extract import *
+import pytest 
+import os
+import csv
 
-def test_file_read_into_list():
-    filename = "results.csv"
-    # expected_output = list
+# Test that file is read into as a list
+def test__is_list():
+    # Arrange
+    filename = 'results.csv'
+    expected_type = list
+    # Act
+    output = get_input(filename)
+    # Assert
+    assert type(output) == expected_type
 
-    output = read_csv(filename)
-
-    assert len(output) > 0
-
-def test_first_row_is_correct():
-    filename = "results.csv"
-    expected_output = list
-
-    output = read_csv(filename)
+# Test that file exists

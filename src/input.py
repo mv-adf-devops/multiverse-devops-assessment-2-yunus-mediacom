@@ -1,9 +1,9 @@
 import sys
-from extract import read_csv
+from extract import get_input
 
 def main():
     filename="results.csv"
-    print(read_csv(filename))
+    print(get_input(filename))
 
 if __name__ == "__main__":
     sys.exit(main())
