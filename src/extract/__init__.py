@@ -55,3 +55,16 @@ def capitalize_user_names(filename):
         if row[last_name_index]:
             row[last_name_index] = row[last_name_index].capitalize()
     return filename
+
+
+def validate_answer_3(data):
+    valid_data = []
+
+    for entry in data:
+        answer_3 = entry[5]  # Assuming 'answer_3' is always at index 5
+
+        # Check if answer_3 is between 1 and 10
+        if isinstance(answer_3, int) and 1 <= answer_3 <= 10:
+            valid_data.append(entry)
+
+    return valid_data

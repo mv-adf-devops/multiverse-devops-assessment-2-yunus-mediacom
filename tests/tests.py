@@ -1,4 +1,4 @@
-from extract import read_csv, remove_duplicates, remove_empty_lines, capitalize_user_names
+from extract import read_csv, remove_duplicates, remove_empty_lines, capitalize_user_names, validate_answer_3
 import pytest 
 import os
 import csv
@@ -80,3 +80,19 @@ def test_capitalize_user_names():
 
     # Assert that the result matches the expected result
     assert result == expected_result
+
+def test_validate_answer_3():
+    # Arrange (Define input data)
+    data = [
+        [1, 'John', 'Doe', 'yes', 'no', 5],
+        [2, 'Jane', 'Smith', 'no', 'yes', 12],
+        [3, 'Alice', 'Johnson', 'yes', 'yes', 'invalid'],
+        [4, 'Bob', 'Brown', 'no', 'no', 8],
+    ]
+
+    # Act (Apply the function to the data)
+    result = validate_answer_3(data)
+
+    # Assert (Check if the result contains only valid rows)
+    for entry in result:
+        assert 1 <= entry[5] <= 10  # Directly access 'answer_3' by index (assuming it's at index 5)
