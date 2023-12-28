@@ -12,7 +12,6 @@ def read_csv(filename):
         raise
     return rows
 
-# this function takes in an array input which is of type list and outputs cyz 
 def remove_duplicates(array_input):
     unique_rows = []
     user_ids = []
@@ -58,18 +57,27 @@ def capitalize_user_names(filename):
 
 
 def validate_answer_3(data):
-    valid_data = []
+    valid_data = [data[0]]
 
     for entry in data:
-        answer_3 = entry[5]  # Assuming 'answer_3' is always at index 5
+        # Extract 'answer_3' and attempt to convert it to an integer
+        try:
+            answer_3 = int(entry[5])
+            if 1 <= answer_3 <= 10:
+                valid_data.append(entry)
+
+        except (ValueError, IndexError):
+            # Skip the entry if conversion fails or if index is out of range
+            continue
 
         # Check if answer_3 is between 1 and 10
-        if isinstance(answer_3, int) and 1 <= answer_3 <= 10:
-            valid_data.append(entry)
+
 
     return valid_data
 
-def output_to_file(output_filename,data):
-    with open(output_filename,"w",encoding = "UTF8",newline = "\n") as f:
+
+def output_to_file(output_filename, data):
+    print("Writing to file:", output_filename)
+    with open(output_filename, "w", encoding="UTF8", newline="\n") as f:
         writer = csv.writer(f)
         writer.writerows(data)

@@ -92,6 +92,7 @@ def test_validate_answer_3():
 
     # Act (Apply the function to the data)
     result = validate_answer_3(data)
+    # print("result",result)
 
     # Assert (Check if the result contains only valid rows)
     for entry in result:
