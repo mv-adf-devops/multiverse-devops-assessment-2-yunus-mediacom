@@ -1,4 +1,4 @@
-from extract import read_csv, remove_duplicates, remove_empty_lines, capitalize_user_names, validate_answer_3
+from extract import read_csv, remove_duplicates, remove_empty_lines, capitalize_user_names, validate_answer_3, output_to_file
 import pytest 
 import os
 import csv
@@ -95,4 +95,15 @@ def test_validate_answer_3():
 
     # Assert (Check if the result contains only valid rows)
     for entry in result:
-        assert 1 <= entry[5] <= 10  # Directly access 'answer_3' by index (assuming it's at index 5)
+        assert 1 <= entry[5] <= 10  # Directly access 'answer_3' by index 
+
+def test_output_exists():
+    # arrange
+    in_file = "results.csv"
+    out_file = "results_output_test.csv"
+    # act
+    in_data = read_csv(in_file)
+    output_to_file(out_file,in_data)
+    out_data = read_csv(out_file)
+    # assert
+    assert out_data == in_data
