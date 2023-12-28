@@ -12,6 +12,7 @@ def read_csv(filename):
         raise
     return rows
 
+# this function takes in an array input which is of type list and outputs cyz 
 def remove_duplicates(array_input):
     unique_rows = []
     user_ids = []
